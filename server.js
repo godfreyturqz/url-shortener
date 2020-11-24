@@ -1,13 +1,14 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const URLModel = require('./models/URLModel')
+require('dotenv/config')
 
 const app = express()
 
 app.use(cors())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}))
+app.use(express.static(__dirname + "/public"))
 
 app.set('view engine', 'ejs')
 
@@ -22,17 +23,16 @@ app.post('/shortUrl', async(req,res)=>{
 
 app.get('/:shortUrl', async(req,res)=>{
     const data = await URLModel.findOne({shortUrl : req.params.shortUrl})
-    if(data == null) return res.status(404)
+    if(data == null) return res.status(404).send('Website not found on the database.')
 
     data.clicks++
     data.save()
-    // console.log(data)
     res.redirect(data.originalUrl)
 })
 
 
-const url = 'mongodb+srv://freecodecamp:greencross123@cluster0.t5wb4.mongodb.net/free?retryWrites=true&w=majority'
-mongoose.connect( url, {
+const PORT = process.env.MONGO_URI || 5000
+mongoose.connect( PORT, {
         useNewUrlParser: true,
         useUnifiedTopology: true
 })

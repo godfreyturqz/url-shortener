@@ -7,6 +7,6 @@ const urlSchema = new mongoose.Schema({
     clicks:{ type: Number, required: true, default: 0}
 })
 
-const URLModel = mongoose.model('URLs', urlSchema)
+const URLModel = mongoose.model('urls', urlSchema)
 
 module.exports = URLModel

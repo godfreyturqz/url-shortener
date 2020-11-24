@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #1b1c1e;
+}
+a:hover{
+    color: #0d41af;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+    width: 100%;
+}
+h1{
+    padding-bottom: 50px;
+    color: #1b1c1e;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+form div p{
+    padding-bottom: 10px;
+}
+input{
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #676767;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+}
+input:focus{
+    border: 2px solid #1a73e8;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #1a73e8;
+    color: #FFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 100%;
+}
+button:hover{
+    transition: all 0.3s ease-in-out;
+    background: #1354a8;
+}
+
+table{
+    padding-top: 30px;
+}
+table thead tr th{
+    padding: 10px 20px;
+    text-align: left;
+    border: 1px solid #676767;
+}
+table tbody tr td{
+    padding: 10px 20px;
+    border: 1px solid #676767;
+}
+table tbody tr:hover{
+    background: #dfdfdf;
+    cursor: pointer;
+}

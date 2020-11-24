@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>URL Shortener</title>
 </head>
 <body>
-    <h1>URL Shortener</h1>
-    <form action="/shortUrl" method="POST">
-        <label for="">Original URL</label>
-        <input type="url" name="originalUrl" required>
-        <button type="submit">Submit</button>
-    </form>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Original URL</th>
-                <th>Shortened URL</th>
-                <th>Clicks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% URLs.forEach(url => { %>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form action="/shortUrl" method="POST">
+            <div>
+                <p>Paste the original URL here:</p>
+            </div>
+            <div>
+                <input type="url" name="originalUrl" required>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <table>
+            <thead>
                 <tr>
-                    <td><%= url.originalUrl %></td>
-                    <td><%= url.shortUrl %></td>
-                    <td><%= url.clicks %></td>
+                    <th>Original URL</th>
+                    <th>Shortened URL</th>
+                    <th>No. of clicks</th>
                 </tr>
-            <% }) %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% URLs.forEach(url => { %>
+                    <tr>
+                        <td>
+                            <a href="<%= url.originalUrl %>" title="<%= url.originalUrl %>">
+                                <%= url.originalUrl %>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/<%= url.shortUrl %>" title="<%= url.originalUrl %>">
+                                <%= url.shortUrl %>
+                            </a>
+                        </td>
+                        <td><%= url.clicks %></td>
+                    </tr>             
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
