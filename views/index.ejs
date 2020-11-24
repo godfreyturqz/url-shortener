@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form action="/shortUrl" method="POST">
+        <label for="">Original URL</label>
+        <input type="url" name="originalUrl" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Original URL</th>
+                <th>Shortened URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% URLs.forEach(url => { %>
+                <tr>
+                    <td><%= url.originalUrl %></td>
+                    <td><%= url.shortUrl %></td>
+                    <td><%= url.clicks %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
