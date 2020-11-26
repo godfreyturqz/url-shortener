@@ -31,10 +31,10 @@ app.get('/:shortUrl', async(req,res)=>{
 })
 
 
-const PORT = process.env.MONGO_URI || 5000
-mongoose.connect( PORT, {
+const PORT = process.env.PORT || 5000
+mongoose.connect( process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
 })
-.then(app.listen(5000 , ()=> console.log('connected')))
+.then(app.listen(PORT , ()=> console.log('connected')))
 .catch(error => console.log(error))
