@@ -66,17 +66,16 @@ button:hover{
 
 table{
     padding-top: 30px;
+    max-width: 1000px;
 }
-table thead tr th{
+
+th, td{
     padding: 10px 20px;
     text-align: left;
     border: 1px solid #676767;
 }
-table tbody tr td{
-    padding: 10px 20px;
-    border: 1px solid #676767;
-}
-table tbody tr:hover{
+
+tr:hover{
     background: #dfdfdf;
     cursor: pointer;
 }
